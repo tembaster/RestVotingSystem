@@ -1,13 +1,22 @@
 package ru.tembaster.model;
 
 
+import java.util.List;
 import java.util.Set;
 
 public class Restaurant {
 
     private Integer id;
     private String name;
-    private Set<Dish> menu;
+    private List<Dish> menu;
+
+    public List<Dish> getMenu() {
+        return menu;
+    }
+
+    public void setMenu(List<Dish> menu) {
+        this.menu = menu;
+    }
 
     public String getName() {
         return name;
@@ -25,13 +34,6 @@ public class Restaurant {
         this.id = id;
     }
 
-    public Set<Dish> getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Set<Dish> menu) {
-        this.menu = menu;
-    }
 
     @Override
     public String toString() {
