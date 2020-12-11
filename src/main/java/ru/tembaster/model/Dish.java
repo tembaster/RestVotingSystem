@@ -1,25 +1,24 @@
 package ru.tembaster.model;
 
-public class Dish {
+public class Dish extends AbstractNamedEntity {
 
-    private Integer id;
-    private String name;
+    private String desc;
     private Integer price;
 
     public Dish() {
     }
 
-    public Dish(String name, Integer price) {
-        this.name = name;
+    public Dish(String desc, Integer price) {
+        this.desc = desc;
         this.price = price;
     }
 
-    public String getName() {
-        return name;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public Integer getPrice() {
@@ -30,12 +29,4 @@ public class Dish {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Dish{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
-    }
 }

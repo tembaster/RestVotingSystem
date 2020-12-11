@@ -20,6 +20,7 @@ public class Main {
         Dish dish05 = new Dish("Шашлык из курицы", 250);
         Dish dish06 = new Dish("Чай с бергамотом", 100);
         restaurant.setMenu(List.of(dish01, dish02, dish03, dish04, dish05, dish06));
+        ConsoleHelper.write(restaurant);
     }
 
 }

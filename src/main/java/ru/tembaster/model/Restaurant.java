@@ -2,11 +2,9 @@ package ru.tembaster.model;
 
 
 import java.util.List;
-import java.util.Set;
 
-public class Restaurant {
+public class Restaurant extends AbstractBaseEntity {
 
-    private Integer id;
     private String name;
     private List<Dish> menu;
 
@@ -37,9 +35,19 @@ public class Restaurant {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Dish dish;
+        for (int i = 0; i < menu.size(); i++) {
+            dish = menu.get(i);
+            sb.append(dish.toString());
+            if (i != menu.size() - 1) {
+                sb.append("; ");
+            }
+        }
         return "Restaurant{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                '}';
+                "}: " +
+                sb;
     }
 }
