@@ -1,10 +1,21 @@
 package ru.tembaster.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
+@Entity
+@Table(name = "dishes")
 public class Dish extends AbstractBaseEntity {
 
+    @Column(name = "desc", nullable = false)
+    @NotBlank
     private String desc;
+
+    @Column(name = "price")
     private Integer price;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private Restaurant restaurant;
 
     public Dish() {

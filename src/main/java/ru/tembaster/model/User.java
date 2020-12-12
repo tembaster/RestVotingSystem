@@ -1,18 +1,33 @@
 package ru.tembaster.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
-public class User extends AbstractBaseEntity {
+@Entity
+@Table(name="users")
+public class User extends AbstractNamedEntity {
 
+    @Column(name = "email", nullable = false, unique = true)
+    @NotBlank
+    @Email
     private String email;
+
+    @Column(name = "password", nullable = false)
+    @NotBlank
     private String password;
+
+    @Enumerated(EnumType.STRING)
     private Role role;
+
+    @Column(name = "is_voted", nullable = false, columnDefinition = "bool default false")
     private Boolean isVoted;
 
     public User() {
     }
 
-    public User(Integer id, String email, String password, Role role, Boolean isVoted) {
-        super(id);
+    public User(Integer id, String name, String email, String password, Role role, Boolean isVoted) {
+        super(id, name);
         this.email = email;
         this.password = password;
         this.role = role;

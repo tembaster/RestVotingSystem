@@ -1,36 +1,29 @@
 package ru.tembaster.model;
 
 
+import javax.persistence.*;
 import java.util.List;
 
-public class Restaurant extends AbstractBaseEntity {
+@Entity
+@Table(name = "restaurants")
+public class Restaurant extends AbstractNamedEntity {
 
-    private String name;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Dish> menu;
+
+    @Column(name = "votes")
     private Integer votes;
+
+    public Restaurant() {
+    }
+
+    public Restaurant(Integer id, String name, Integer votes) {
+        super(id, name);
+        this.votes = votes;
+    }
 
     public List<Dish> getMenu() {
         return menu;
-    }
-
-    public void setMenu(List<Dish> menu) {
-        this.menu = menu;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     @Override
