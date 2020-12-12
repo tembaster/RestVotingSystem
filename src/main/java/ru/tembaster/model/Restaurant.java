@@ -7,6 +7,7 @@ public class Restaurant extends AbstractBaseEntity {
 
     private String name;
     private List<Dish> menu;
+    private Integer votes;
 
     public List<Dish> getMenu() {
         return menu;
@@ -31,7 +32,6 @@ public class Restaurant extends AbstractBaseEntity {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     @Override
     public String toString() {
